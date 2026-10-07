@@ -1,0 +1,159 @@
+:root {
+  --bg-main: #050810;
+  --bg-deep-navy: #07101d;
+  --bg-dashboard: #0a111c;
+  --bg-panel: #101927;
+  --bg-panel-elevated: #141f30;
+  --bg-input: #0e1624;
+
+  --border-subtle: rgba(90, 140, 190, 0.14);
+  --border-bright: rgba(54, 199, 255, 0.35);
+
+  --accent-primary-blue: #168bff;
+  --accent-bright-cyan: #36c7ff;
+  --accent-deep-blue: #0b3d73;
+  --accent-yellow: #ffd83d;
+
+  --text-primary: #f3f7fa;
+  --text-secondary: #8b98aa;
+  --text-muted: #566477;
+
+  --status-success: #22d3a2;
+  --status-warning: #ffd23f;
+  --status-danger: #ff454a;
+
+  --font-display: 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-tech: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bg-main);
+}
+
+/* Static cyber command center canvas with responsive overflow */
+.command-center-canvas {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(22, 139, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 85% 85%, rgba(54, 199, 255, 0.04) 0%, transparent 45%);
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Stationary dashboard container - fluidly responsive for half screen and full screen */
+.dashboard-viewport {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  background: var(--bg-dashboard);
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  user-select: auto;
+}
+
+@media (min-width: 1440px) and (min-height: 850px) {
+  .command-center-canvas {
+    padding: 12px;
+  }
+  .dashboard-viewport {
+    width: 95vw;
+    height: 94vh;
+    border-radius: 20px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 
+      0 30px 80px -10px rgba(0, 0, 0, 0.9),
+      0 0 60px -10px rgba(22, 139, 255, 0.15),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Subtle Top Edge Highlight Shine */
+.dashboard-top-shine {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 30%,
+    rgba(54, 199, 255, 0.45) 50%,
+    rgba(22, 139, 255, 0.3) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-tech {
+  font-family: var(--font-tech);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Enhanced Visible Cyber Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(7, 16, 29, 0.85);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(54, 199, 255, 0.35);
+  border-radius: 4px;
+  border: 1px solid rgba(54, 199, 255, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(54, 199, 255, 0.7);
+  box-shadow: 0 0 10px rgba(54, 199, 255, 0.5);
+}
+
+/* Scrollbar support for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(54, 199, 255, 0.35) rgba(7, 16, 29, 0.85);
+}

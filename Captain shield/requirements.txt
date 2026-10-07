@@ -1,0 +1,7 @@
+Flask
+requests
+ttkbootstrap
+numpy
+matplotlib
+psutil
+scikit-learn
